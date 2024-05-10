@@ -1,0 +1,26 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Result</title>
+    <link rel="stylesheet" href="{% static 'quiz/css/result_style.css' %}">
+    <link rel="stylesheet" href="{% static 'quiz/css/navbarstyle.css' %}">
+</head>
+<body class="body">
+    {% include 'quiz/navbar.html' %}
+    <div class="container">
+        <div class="result-container">
+            <h1 class="h1">Quiz Result</h1>
+            {% if score is not None %}
+                <p class="p">Your score for {{ quiz.title }}:</p>
+                <p class="score">{{ score }}%</p>
+                <p class="feedback">Feedback: {{ feedback }}</p>
+            {% else %}
+                <p>No results available.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
